@@ -1,6 +1,13 @@
 #include<Windows.h>
 #include<bits/stdc++.h>
 using namespace std;
+/*function:
+	recognize them when enemys were spotted 
+*/
+/*compile:
+	g++ -Wl,--stack=998244353 -std=c++17 -O3 recognize_enemy.cpp -o recognize_enemy.exe
+*/
+
 struct Image{
 	//Default index start with 0 
 	//For grey image
@@ -23,7 +30,7 @@ struct Image{
 			for(int j=0;j<m;j++)
 				a[i][j]/=sum;
 	}
-	void read(auto &fin,int ReadName=0){
+	void read(ifstream &fin,int ReadName=0){
 		//fin is a ifstream type
 		if(ReadName)
 			fin>>Name;
@@ -42,7 +49,9 @@ struct Image{
 	}
 }Tem[100],Tar[100];
 set<string> S1,S2,S3,S4;
-bool in(auto &Object,auto &Container){	
+char *ROOT;
+template<typename T1, typename T2>
+bool in(const T1 &Object, const T2 &Container){	
 	return Container.find(Object)!=Container.end();
 }
 double CalcImageSimilarity(Image a,Image b){
@@ -69,11 +78,17 @@ double CalcImageSimilarity(Image a,Image b){
 		}
 	return res;
 }
-void recognize(auto &ain)
+string merge(char* a,const char* b){
+	char ch[1000];
+	strcpy(ch, a);
+	strcat(ch, b);
+	return ch;
+}
+void recognize(ifstream &ain)
 {
 	int TemplateCount,TargetCount;
-	ifstream fin("TemplateData.in");
-	ofstream fout("res.out");
+	ifstream fin(merge(ROOT, "/TemplateData.in"));
+	ofstream fout(merge(ROOT, "/res.out"));
 	fin>>TemplateCount;
 	for(int i=0;i<TemplateCount;i++)
 		Tem[i].read(fin,1);
@@ -108,8 +123,7 @@ void recognize(auto &ain)
 	fout.close();
 	fin.close(); 
 }
-
-signed main()
+signed main(int argc, char** args)
 {
 	//Args given in the tunnel,file "args.in" 
 	//The exe will be put in the tunnel
@@ -117,12 +131,15 @@ signed main()
 	//S2:CV,CVL,AV
 	//S3:BB,BC
 	//S4:CL,CVL
+	ROOT = args[1];
 	S1.insert("CA"),S1.insert("CL");S1.insert("CAV");S1.insert("CLT");S1.insert("CBG");S1.insert("BC");
 	S2.insert("CV"),S2.insert("AV"),S2.insert("CVL");
 	S3.insert("BB"),S3.insert("BC");
 	S4.insert("CL"),S4.insert("CVL");
 	
-	ifstream ain("Args.in");
+	
+	ifstream ain(merge(ROOT, "/args.in"));
+//	cout<<merge(ROOT, "/args.in")<<endl;
 	string name;
 	while(ain>>name)
 	{
