@@ -11,7 +11,7 @@ runner = TaskRunner(timer)  # 注册 TaskRunner
 runner.tasks.append(
     FightTask(
         timer,
-        file_path='./fight_task_example.yaml',  # 任务配置文件路径，这个地方填写自己写好的配置文件
+        file_path='./fight_task.yaml',  # 任务配置文件路径，这个地方填写自己写好的配置文件
         plan=plan,
     ),
 )  # 添加任务 (仅支持绝对路径)
