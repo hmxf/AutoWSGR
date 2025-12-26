@@ -96,6 +96,8 @@ def register(timer: Timer, ships, fleet_id):
                     timer.logger.error(f'未找到舰船 {ship} 的等级信息')
                     continue
                 register_result.level = fleet.levels[1]
+                timer.click(110, 250, delay=1)  # 点击一号位
+                timer.click(110, 250, delay=1)  # 点击离队
         timer.port.show_fleet()
 
 

@@ -225,7 +225,7 @@ def quick_repair(
         if ship_stats is None:
             ship_stats = detect_ship_stats(timer)
         if all(stat == -1 for stat in ship_stats):
-            time.sleep(1)
+            time.sleep(5)
             ship_stats = detect_ship_stats(timer)
         if all(stat == -1 for stat in ship_stats):
             timer.logger.warning('执行修理操作时没有成功检测到舰船')
