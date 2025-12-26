@@ -27,12 +27,12 @@ destroy_ship_types:
 # >> 解装设置结束 <<
 
 # 浴室数(购买的浴室装饰数, 最大为 3) 说明: 未来可能自动获取
-bathroom_feature_count: 3
+bathroom_feature_count: 1
 # 修理位置总数(最大为 12) 说明: 未来可能自动获取
-bathroom_count: 6
+bathroom_count: 2
 
 # ========= 模拟器类型 =========
-emulator_type: MuMu
+emulator_type: 雷电
 # 如果您有多开等需要指定模拟器的需求，请使用emulator_name手动指定
 # emulator_name: your_ip:your_port
 
@@ -50,28 +50,24 @@ daily_automation:
   auto_bath_repair: True
 
   # 自动开启战役支援
-  auto_set_support: False
+  auto_set_support: True
 
   # 自动打完每日战役次数
   auto_battle: True
   # 战役难度
-  battle_type: 困难潜艇
+  battle_type: 困难巡洋
 
   # 自动演习
-  auto_exercise: False
+  auto_exercise: True
   # 演习出征舰队
-  exercise_fleet_id: 1 # 演习出征舰队
+  exercise_fleet_id: 2 # 演习出征舰队
 
   # 按自定义任务进行常规战
   auto_normal_fight: True
   # 常规战任务列表
   normal_fight_tasks:
-    # - [6-1炸鱼不打轻母, 1, 100] # 6-1a 炸鱼不打轻母
-    # - [8-2B, 2, 100] # 8-2B 轻巡+72工程+4老板
-    # - [8-2BJ, 2, 1000] # 胖次
-    # - [9-1B, 1, 100] # 9-1 BF 练级
-    # - [9-4周常, 3, 1000] # 9-4 6SS 漂流
-    # - [9-5BE, 3, 200] # 9-5 BE 二连炸鱼，反潜需求高，3DD带路
+    # - [8-2BJ, 4, 250] # 胖次
+    - [8-5AI, 2, 250] # 6鱼
 
   # 快修消耗上限，达到时终止常规战出征。
   # 在选项前添加 # 注释掉, 或填写 null 则无上限
@@ -91,14 +87,11 @@ decisive_battle:
   # 出击次数
   sortie_times: 1
   # 一级舰队
-  # level1: ["U-96", "M-296", "U-505", "莱昂纳多·达·芬奇", "U-14", "U-4501", "K-21"]
-  level1: ["U-47", "U-1206", "U-1405"]
+  level1: ["鲃鱼", "U-1206", "射水鱼", "U-96", "U-1405", "U-47"]
   # 二级舰队
-  # level2: ["U-81", "刺尾鱼", "U-2540", "伊-17", "伊-25", "K1"]
-  level2: ["鲃鱼", "射水鱼", "鹦鹉螺"]
+  level2: ["U-81", "大青花鱼", "M-296", "U-505", "伊-25"]
   # 旗舰优先级队列
-  # flagship_priority: ["U-505", "U-2540", "M-296"]
-  flagship_priority: ["U-1405", "鹦鹉螺"]
+  flagship_priority: ["U-1405", "U-47", "U-1206"]
   # 维修策略, 1 为中破修, 2 为大破修
   repair_level: 2
   # 船舱满了解装舰船（仅限决战）
@@ -117,4 +110,4 @@ event_automation:
   # 选择舰队
   fleet_id: 1
   #出击次数
-  battle_count: 100000
+  battle_count: 500
