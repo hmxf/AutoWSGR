@@ -186,7 +186,7 @@ class OCRBackend(Protocol):
             res, name = 'dsjfagiahsdifhaoisd', t
             if candidates is None:
                 return name
-            for _name in candidates:
+            for _name in map(str, candidates):
                 if any((_name.find(char) != -1) for char in name):
                     dis1 = edit_distance(_name, name) / (len(find_lcseque(_name, name)) + 1)
                     dis2 = edit_distance(res, name) / (len(find_lcseque(res, name)) + 1)
