@@ -6,12 +6,14 @@ from autowsgr.scripts.main import start_script
 
 
 timer = start_script('./user_settings.yaml')
-plan = NormalFightPlan(timer, '9-3AD.yaml')
+plan = NormalFightPlan(
+    timer, 'C:/Users/Teruharu/Documents/GitHub/AutoWSGR/examples/plans/normal_fight/9-5BE.yaml'
+)
 runner = TaskRunner(timer)  # 注册 TaskRunner
 runner.tasks.append(
     FightTask(
         timer,
-        file_path='./fight_task_example.yaml',  # 任务配置文件路径，这个地方填写自己写好的配置文件
+        file_path='./fight_task.yaml',  # 任务配置文件路径，这个地方填写自己写好的配置文件
         plan=plan,
     ),
 )  # 添加任务 (仅支持绝对路径)
