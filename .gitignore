@@ -133,3 +133,7 @@ Cargo.lock
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
+
+# User Configuration Files
+examples/user_settings.yaml
+examples/fight_task.yaml
